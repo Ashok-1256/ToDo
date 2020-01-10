@@ -36,6 +36,7 @@ li{
     display: none;
 }
 
+
 /* ---------------------------------------------main classes----------------------------------------------*/
 
 .wrapper{
@@ -48,26 +49,31 @@ li{
     border: 1px solid black;
 }
 .add-to-do{
+    text-align: center;
     
 }
 .button-container{
-
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .to-do-list{
+    width: 70%;
 
 }
 
 .edit-to-do{
-    
+
 }
 
 
 /* -----------------------------------------------Id------------------------------------------------------*/
 
 #to-do-input{
-    
-
+    width: 70%;
 }
 
 #all{
