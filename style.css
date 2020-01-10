@@ -1,0 +1,87 @@
+/*----------------------------------------------tags-----------------------------------------------*/
+body{
+    
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+
+li{
+    display: inline;
+}
+
+
+/* ---------------------------------------------utility classes----------------------------------------------*/
+
+.width-fit-content{
+    width:fit-content;
+}
+
+.display-inline-block{
+    display: inline-block;
+}
+
+.margin-left-default{
+    margin-left:2%;
+}
+
+.border-default{
+}
+
+.display-none{
+    display: none;
+}
+
+/* ---------------------------------------------main classes----------------------------------------------*/
+
+.wrapper{
+    text-align: center;
+}
+
+.container{
+    margin-top: 5%;
+    width: 40%;
+    border: 1px solid black;
+}
+.add-to-do{
+    
+}
+.button-container{
+
+}
+
+.to-do-list{
+
+}
+
+.edit-to-do{
+    
+}
+
+
+/* -----------------------------------------------Id------------------------------------------------------*/
+
+#to-do-input{
+    
+
+}
+
+#all{
+
+}
+
+#active{
+
+}
+
+#completed{
+
+}
+
+
+
+

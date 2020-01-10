@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>ToDo</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container display-inline-block">
+            <div class="add-to-do width-fit-content">
+                <input id="to-do-input" type="text">
+            </div>
+            <ul class="button-container margin-left-default">
+                <li id="all"> All </li>
+                <li id="active"> Active </li>
+                <li id="completed"> Completed </li>
+            </ul>
+            <ul class="to-do-list width-fit-content margin-left-default">
+                <ul>
+                    <li> <input type="checkbox" >  </li>
+                    <li> todo </li>
+                    <li> X </li>
+                </ul>
+            </ul>
+            <ul class="margin-left-default">
+                <li id="to-dos-left"> number of todos left to be completed</li>
+            </ul>
+        </div>
+    </div>
+    <script src="toDo.js"></script>
+</body>
+</html>
