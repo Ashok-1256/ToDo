@@ -11,12 +11,12 @@
     <div class="wrapper">
         <div class="container display-inline-block">
             <div class="add-to-do ">
-                <input id="to-do-input" type="text">
+                <input id="to-do-input" type="text" placeholder="Press enter to add">
             </div>
             <ul class="button-container margin-left-default">
-                <li id="all"> All </li>
-                <li id="active"> Active </li>
-                <li id="completed"> Completed </li>
+                <li id="all"> <button class="filter-button"> All </button> </li>
+                <li id="active"> <button class="filter-button"> Active </button></li>
+                <li id="completed"> <button class="filter-button"> Completed </button> </li>
             </ul>
             <ul class="to-do-list  margin-left-default">
                 <!-- <ul>
@@ -25,9 +25,11 @@
                     <li> X </li>
                 </ul> -->
             </ul>
-            <ul class="margin-left-default">
-                <li id="to-dos-left"> number of todos left to be completed</li>
-            </ul>
+            <ul  class="margin-left-default">
+                <li id="to-dos-left"> 0 remaining </li>
+            </ul >
+            <ul class="margin-left-default"><button id='clear-button' class="filter-button clear-color">Clear</button></ul>
+            
         </div>
     </div>
     <script src="toDo.js"></script>

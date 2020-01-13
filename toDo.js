@@ -7,12 +7,21 @@ const COMPLETED = 2;
 var model = {
     list :[],
     initilize : function(){
+        //localStorage.clear();
+        this.list = JSON.parse(localStorage.getItem('list'));
+        if(this.list === null)
+        this.list = [];
+
         return this.list;
     },
     update : function(list){
+        this.list = list;
+        localStorage.removeItem('list');
+        localStorage.setItem('list', JSON.stringify(list));
 
     },
-    delete : function(){
+    clear : function(){
+        localStorage.clear();
 
     }
 }
@@ -40,11 +49,8 @@ var view = {
             //console.log(toDo.status, current);
         })
         controller.displayToDosLeft();
-        console.log(list);
+        //console.log(list);
     },
-
-
-
 
 }
 
@@ -55,18 +61,22 @@ var controller = {
     current : ALL,
     list : [] ,
     initilize : function(){
-        this.list = model.initilize() ;
-        this.list.forEach(toDo => {
-            this.createToDo(toDo);
+        let initialList = model.initilize() ;
+        this.list = [];
+        
+        initialList.forEach((toDo, index) => {
+            //console.log(toDo, index);
+            this.createToDo(toDo.task,toDo.status);
         })
         view.render(this.list, this.current);
 
     },
     
-    createToDoCheckBoxNode : function(){
+    createToDoCheckBoxNode : function(checked){
         let checkBox = document.createElement('input') ;
         checkBox.setAttribute('type','checkbox') ;
         checkBox.onclick = this.toggleCheckBox ;
+        checkBox.checked = checked ;
 
         return checkBox;
     },
@@ -81,17 +91,18 @@ var controller = {
     createToDoDeleteNode : function(){
         let deleteNode = document.createElement('li') ;
         deleteNode.innerText = ' X' ;
+        deleteNode.classList.add('delete-icon')
         deleteNode.onclick = this.deleteToDo;
 
         return deleteNode;
     },
     
 
-    createDomNode : function(task,id){
+    createDomNode : function(task, id, checked){
         let toDo = document.createElement('ul') ;
         toDo.setAttribute('id',id) ;
 
-        let checkBox = this.createToDoCheckBoxNode();
+        let checkBox = this.createToDoCheckBoxNode(checked);
         let toDoTask = this.createToDoTaskNode(task);
         let deleteToDo = this.createToDoDeleteNode();
 
@@ -101,15 +112,15 @@ var controller = {
 
         return toDo ;
     }, 
-    createToDo : function(task){
+    createToDo : function(task, status = ACTIVE){
         let newToDo = {
-            status : ACTIVE ,
+            status : status ,
             task : task ,
             id : this.list.length, 
         }
         this.list.push(newToDo);
 
-        let newNode = this.createDomNode(task, newToDo.id) ;
+        let newNode = this.createDomNode(task, newToDo.id, status == ACTIVE ? false : true) ;
         let toDoList = document.getElementsByClassName('to-do-list')[0];
         toDoList.appendChild(newNode);
 
@@ -146,6 +157,14 @@ var controller = {
         controller.deleteToDoFromDom(id);
         model.update(controller.list);
         view.render(controller.list, controller.current);
+    },
+    clearToDos : function(){
+        let newList = this.list.filter(()=>true);
+        newList.forEach(toDo => {
+            console.log(toDo);
+            this.deleteToDoById(toDo.id)
+        })
+        this.initilize();
     },
 
     
@@ -191,6 +210,7 @@ var controller = {
         })
 
         view.render(controller.list, controller.current);
+        model.update(controller.list);
         
 
     },
@@ -236,4 +256,11 @@ activeSelector.onclick = function(){
 completedSelector.onclick = function(){
     console.log(' completed button clicked');
     controller.setCurrent(COMPLETED);
+}
+
+let clearToDo = document.getElementById('clear-button');
+clearToDo.onclick = function(){
+    controller.clearToDos();
+    model.clear();
+
 }

@@ -62,19 +62,54 @@ li{
 
 .to-do-list{
     width: 70%;
-
+    margin-top: 2%;
+    margin-bottom: 3%;
 }
 
 .edit-to-do{
 
 }
 
+.delete-icon{
+    color: rgb(212, 74, 120);
+    margin-left: 30px;
+}
+
+.filter-button {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color:rgb(65, 176, 250);
+    border-radius: 15px;
+    outline: currentColor;
+    border:none;
+  }
+  
+  .filter-button:hover {background-color: #3e74c4}
+  
+  .filter-button:active {
+    background-color: #3e74c4;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+
+  
+
 
 /* -----------------------------------------------Id------------------------------------------------------*/
 
 #to-do-input{
     width: 70%;
+    padding: 1%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
+
+
 
 #all{
 
@@ -88,6 +123,13 @@ li{
 
 }
 
+#to-dos-left{
+    color: rgb(13, 146, 35);
+}
 
+#clear-button{
+    margin-top: 12%;
+    background-color: rgb(92, 121, 199);
+}
 
 
